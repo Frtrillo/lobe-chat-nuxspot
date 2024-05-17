@@ -112,7 +112,7 @@ const isModelEnabledFunctionCall = (id: string) => (s: UserStore) =>
 const isModelEnabledVision = (id: string) => (s: UserStore) =>
   getModelCardById(id)(s)?.vision || id.includes('vision') || id.includes('firellava');
 
-const isModelEnabledFiles = (id: string) => (s: UserStore) => getModelCardById(id)(s)?.files;
+const isModelEnabledFiles = (id: string) => (s: UserStore) => getModelCardById(id)(s)?.files || id.includes('firellava');
 
 const isModelEnabledUpload = (id: string) => (s: UserStore) =>
   isModelEnabledVision(id)(s) || isModelEnabledFiles(id)(s);
